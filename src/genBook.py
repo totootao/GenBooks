@@ -54,7 +54,7 @@ def get_start(fname):
     with open("./config/time.txt","r+") as f:
         timeStamp = int(f.read())
         #write new time stamp after read it
-        if(timeStamp<10000):#if time stamp is a num which is less than 100, it means that we should calculate the stamp before N hours
+        if(timeStamp<100000):#if time stamp is a num which is less than 100, it means that we should calculate the stamp before N hours
             timeStamp = int(time.mktime(datetime.now(pytz.timezone('UTC')).timetuple())) - (timeStamp * 3600)
         else: # calculate time stamp do not need to write new time stamp to the file
             f.seek(0)
